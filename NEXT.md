@@ -2,7 +2,7 @@
 
 ## update.img（未完成）
 
-- 现状：`update.img` 已用 afptool-rs 生成（RKFW + RKAF），但 RKDevTool v3.37 报「加载固件失败」
+- 现状：已用 RKImageMaker（`-os_type:androidos`）+ AFPTool 2.28 生成 `update_full.img`，RKDevTool v3.37 **可以加载**（版本 1.0.0 / RK3588）
 - 已排查：
   - AFPTool 2.28 + RKImageMaker 2.23 组合报 `Get image version failed`
   - RKAF 头 version 字段（偏移 128/132）补值无效
