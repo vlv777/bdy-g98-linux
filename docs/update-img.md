@@ -1,4 +1,4 @@
-# update.img 升级方式（实验性）
+# update.img 升级方式
 
 ## 文件
 
@@ -42,3 +42,13 @@ rkfw_pkg/
 RKDevTool → 升级固件 → 选择 `update.img` → 升级。
 
 > 注意：这条路径尚未在实机上完成最终验证，优先使用整盘镜像 + flash-g98.ps1。
+
+
+## 关键修复（2026-10-26）
+
+RKImageMaker 2.23 生成 update.img 时必须用 `-os_type:androidos`，用 `RKOS` 会报
+`Get image version failed`。这是 Rockchip Linux SDK 的官方用法（androidos 只代表容器格式）。
+
+```powershell
+RKImageMaker.exe -RK3588 loader.bin firmware.img update.img -os_type:androidos -storage:EMMC
+```
